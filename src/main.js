@@ -10,8 +10,11 @@ const displayDoctor = entry => {
     entry.data.forEach(data => {
       let firstName = data.profile.first_name;
       let lastName = data.profile.last_name;
+      let address_street = data.practices[0].visit_address.street;
+      let address_state = data.practices[0].visit_address.state;
+      let address_zip = data.practices[0].visit_address.zip;
 
-      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + `<br>`);
+      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + address_street + " " + address_state + " " + address_zip + `<br>`);
     });
   }
 }
