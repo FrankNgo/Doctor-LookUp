@@ -14,6 +14,8 @@ const displayDoctor = entry => {
       let address_state = data.practices[0].visit_address.state;
       let address_zip = data.practices[0].visit_address.zip;
       let phoneNumber = data.practices[0].phones[0].number;
+      let biography = data.profile.bio;
+      let picture = data.profile.image_url;
       let doctorWebsite = data.practices[0].website;
       if (doctorWebsite === undefined) {
         doctorWebsite = "No website available."
@@ -29,11 +31,10 @@ const displayDoctor = entry => {
         acceptNewPatients = "Not currently accepting new patients."
        }
 
-      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + address_street + " " + address_state + " " + address_zip + " " + phoneNumber + " " + doctorWebsite + " " + acceptNewPatients + `<br>`);
+      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + address_street + " " + address_state + " " + address_zip + " " + phoneNumber + " " + doctorWebsite + " " + acceptNewPatients + " " + biography + " " + `<img src ="` + picture + `">` + `<br>`);
     });
   }
 }
-
 
 $(document).ready(function() {
   $('#searchDoctor').click(e => {
