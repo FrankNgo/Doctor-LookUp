@@ -13,8 +13,17 @@ const displayDoctor = entry => {
       let address_street = data.practices[0].visit_address.street;
       let address_state = data.practices[0].visit_address.state;
       let address_zip = data.practices[0].visit_address.zip;
+      let phoneNumber = data.practices[0].phones[0].number;
+      let doctorWebsite = data.practices[0].website;
+      if (doctorWebsite === undefined) {
+        doctorWebsite = "No website available."
+      }
+      else if (doctorWebsite === entry.data.practices[0].website ){
+        doctorWebsite = entry.data.practices[0].website;
+      }
+      let patients = data.practices[0].accepts_new_patients;
 
-      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + address_street + " " + address_state + " " + address_zip + `<br>`);
+      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + address_street + " " + address_state + " " + address_zip + " " + phoneNumber + " " + doctorWebsite + " " + patients + `<br>`);
     });
   }
 }
