@@ -20,12 +20,16 @@ const displayDoctor = entry => {
       }
       else if (doctorWebsite === entry.data.practices[0].website ){
         doctorWebsite = entry.data.practices[0].website;
-        
       }
+      let acceptNewPatients = data.practices[0].accepts_new_patients;
+      if (acceptNewPatients === true) {
+          acceptNewPatients = "Currently accepting new patients.";
+       }
+       else if (acceptNewPatients === false) {
+        acceptNewPatients = "Not currently accepting new patients."
+       }
 
-      let patients = data.practices[0].accepts_new_patients;
-
-      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + address_street + " " + address_state + " " + address_zip + " " + phoneNumber + " " + doctorWebsite + " " + patients + `<br>`);
+      $('#showDoctors').append(`<li>`+ firstName + " "+ lastName + " " + address_street + " " + address_state + " " + address_zip + " " + phoneNumber + " " + doctorWebsite + " " + acceptNewPatients + `<br>`);
     });
   }
 }
