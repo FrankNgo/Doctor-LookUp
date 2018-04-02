@@ -10,7 +10,7 @@ export class doctorApi {
       displayDoctor(entry);
     })
     .fail(() => {
-      $('#error').text("An error has occured.")
+      $('#error').text("No Matches.")
     });
   }
 }
