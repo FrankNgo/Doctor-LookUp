@@ -8,5 +8,8 @@ export class doctorApi {
     .then(response => {
       displayDoctor(response);
     })
+    .fail(() => {
+      $('#error').text("An error has occured.")
+    });
   }
 }
