@@ -16,14 +16,14 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {from:'./src/img',to:'images'}
-    ]),
+    // new CopyWebpackPlugin([
+    //   {from:'./src/img',to:'images'}
+    // ]),
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
     new Dotenv(),
     new HtmlWebpackPlugin({
-      title: 'doctor',
+      title: 'gitSome',
       template: './src/index.html',
       inject: 'body'
     })
